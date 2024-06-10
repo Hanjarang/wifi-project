@@ -11,4 +11,7 @@
 과제를 여전히 100프로 이해하지못했고 프로그램 구현도 제대로 하지못했습니다.
 작업환경을 구축하는 것에 막혀서 몇날 며칠을 과제에 진전이 없었고, 여전히 제데로 연동되지않거나 실패한부분 투성이입니다.
 
+[Download the ZIP file](https://github.com/Hanjarang/wifi-project/raw/main/%EC%A0%9C%EB%A1%9C%EB%B2%A0%EC%9D%B4%EC%8A%A4%20%EB%B0%B1%EC%97%94%EB%93%9C%20%EC%8A%A4%EC%BF%A8_24%EA%B8%B0_%ED%95%9C%EC%9E%90%EB%9E%91_[%EC%B1%8C%EB%A6%B0%EC%A7%80%EB%B0%98]%20Mission%201_(240610).zip)
+
+
 
