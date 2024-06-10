@@ -10,18 +10,20 @@
         }
 
         thead:first-child {
-            background-color: #90EE90 ; 
+            background-color: #006400; /* 더 진한 초록색 */
         }
 
         td, th {
             text-align: center;
             font-size: 12px;
+            color: white; /* 글씨 색을 흰색으로 변경 */
+            height: 50px; /* 셀의 높이를 크게 변경 */
         }
     </style>
 </head>
 <body>
 <header>
-    <h1>와이파이 정보 구하기</h1>
+    <h1>내 위치기반 공공 와이파이</h1>
 </header>
 <main>
     <div class="option">

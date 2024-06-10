@@ -11,12 +11,14 @@
         }
 
         thead:first-child {
-            background-color: #90EE90 ; /* 배경색을 초록색으로 변경 */
+            background-color: #006400; 
         }
 
         td, th {
             text-align: center;
-            font-size: 12px; /* 원하는 폰트 크기로 변경 */
+            font-size: 12px;
+            color: white;
+            height: 50px;
         }
     </style>
 </head>

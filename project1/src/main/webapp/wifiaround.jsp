@@ -24,7 +24,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
     <title>내 위치기반 공공 와이파이</title>
     <style>
         table {
@@ -32,12 +31,14 @@
         }
 
         thead:first-child {
-            background-color: #90EE90 ; /* 배경색을 초록색으로 변경 */
+            background-color: #006400; /* 더 진한 초록색 */
         }
 
         td, th {
             text-align: center;
-            font-size: 12px; /* 원하는 폰트 크기로 변경 */
+            font-size: 12px;
+            color: white; /* 글씨 색을 흰색으로 변경 */
+            height: 50px; /* 셀의 높이를 크게 변경 */
         }
     </style>
 </head>
