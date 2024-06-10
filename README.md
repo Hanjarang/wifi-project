@@ -18,3 +18,7 @@ Open API 불러오는 구현 실패 / 내 근처 와이파이 가져오는 기�
 # ERD
 ![ERD](https://github.com/Hanjarang/wifi-project/assets/167011258/39f568eb-1eb4-48b1-8adc-cebf383e61d3)
 
+
+# 구현영상
+![구현영상](https://github.com/Hanjarang/wifi-project/assets/167011258/ca67e047-0f9f-4abc-a46c-7e910bc4c898)
+
