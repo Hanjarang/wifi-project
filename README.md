@@ -20,5 +20,6 @@ Open API 불러오는 구현 실패 / 내 근처 와이파이 가져오는 기�
 
 
 # 구현영상
-![구현영상](https://github.com/Hanjarang/wifi-project/assets/167011258/ca67e047-0f9f-4abc-a46c-7e910bc4c898)
+![구현영상](https://github.com/Hanjarang/wifi-project/assets/167011258/c2de139e-efc3-41f9-82b3-46653fdb5838)
+
 
