@@ -28,22 +28,22 @@ public class Database {
              )) {
 
             for (wifidetail detail : wifiDetails) {
-                ps.setString(1, detail.getX_SWIFI_MGR_NO());
-                ps.setString(2, detail.getX_SWIFI_WRDOFC());
-                ps.setString(3, detail.getX_SWIFI_MAIN_NM());
-                ps.setString(4, detail.getX_SWIFI_ADRES1());
-                ps.setString(5, detail.getX_SWIFI_ADRES2());
-                ps.setString(6, detail.getX_SWIFI_INSTL_FLOOR());
-                ps.setString(7, detail.getX_SWIFI_INSTL_TY());
-                ps.setString(8, detail.getX_SWIFI_INSTL_MBY());
-                ps.setString(9, detail.getX_SWIFI_SVC_SE());
-                ps.setString(10, detail.getX_SWIFI_CMCWR());
-                ps.setInt(11, detail.getX_SWIFI_CNSTC_YEAR());
-                ps.setString(12, detail.getX_SWIFI_INOUT_DOOR());
-                ps.setString(13, detail.getX_SWIFI_REMARS3());
-                ps.setDouble(14, detail.getLAT());
-                ps.setDouble(15, detail.getLNT());
-                ps.setString(16, detail.getWORK_DTTM());
+                ps.setString(1, detail.getxSwifiMgrNo());
+                ps.setString(2, detail.getxSwifiWrdoFc());
+                ps.setString(3, detail.getxSwifiMainNm());
+                ps.setString(4, detail.getxSwifiAdres1());
+                ps.setString(5, detail.getxSwifiAdres2());
+                ps.setString(6, detail.getxSwifiInstlFloor());
+                ps.setString(7, detail.getxSwifiInstlTy());
+                ps.setString(8, detail.getxSwifiInstlMby());
+                ps.setString(9, detail.getxSwifiSvcSe());
+                ps.setString(10, detail.getxSwifiCmcwr());
+                ps.setInt(11, detail.getxSwifiCnstcYear());
+                ps.setString(12, detail.getxSwifiInoutDoor());
+                ps.setString(13, detail.getxSwifiRemars3());
+                ps.setDouble(14, detail.getLat());
+                ps.setDouble(15, detail.getLnt());
+                ps.setString(16, detail.getWorkDttm());
                 ps.addBatch();
             }
             ps.executeBatch();
@@ -67,13 +67,16 @@ public class Database {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                Object[] row = new Object[4]; // 컬럼 수에 맞게 조정하세요.
-                row[0] = rs.getString("X_SWIFI_MGR_NO");
-                row[1] = rs.getString("X_SWIFI_ADRES1");
-                row[2] = rs.getString("X_SWIFI_ADRES2");
-                row[3] = rs.getString("WORK_DTTM");
+                Object[] row = new Object[6]; // 컬럼 수에 맞게 조정했습니다.
+                row[0] = rs.getInt("id");
+                row[1] = rs.getTimestamp("request_time");
+                row[2] = rs.getString("ssid");
+                row[3] = rs.getString("bssid");
+                row[4] = rs.getString("location");
+                row[5] = rs.getInt("signal_strength");
                 historyList.add(row);
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -193,22 +196,22 @@ public class Database {
             // 결과를 리스트에 추가
             while (rs.next()) {
                 wifidetail wifiDetail = new wifidetail();
-                wifiDetail.setX_SWIFI_MGR_NO(rs.getString("X_SWIFI_MGR_NO"));
-                wifiDetail.setX_SWIFI_WRDOFC(rs.getString("X_SWIFI_WRDOFC"));
-                wifiDetail.setX_SWIFI_MAIN_NM(rs.getString("X_SWIFI_MAIN_NM"));
-                wifiDetail.setX_SWIFI_ADRES1(rs.getString("X_SWIFI_ADRES1"));
-                wifiDetail.setX_SWIFI_ADRES2(rs.getString("X_SWIFI_ADRES2"));
-                wifiDetail.setX_SWIFI_INSTL_FLOOR(rs.getString("X_SWIFI_INSTL_FLOOR"));
-                wifiDetail.setX_SWIFI_INSTL_TY(rs.getString("X_SWIFI_INSTL_TY"));
-                wifiDetail.setX_SWIFI_INSTL_MBY(rs.getString("X_SWIFI_INSTL_MBY"));
-                wifiDetail.setX_SWIFI_SVC_SE(rs.getString("X_SWIFI_SVC_SE"));
-                wifiDetail.setX_SWIFI_CMCWR(rs.getString("X_SWIFI_CMCWR"));
-                wifiDetail.setX_SWIFI_CNSTC_YEAR(rs.getInt("X_SWIFI_CNSTC_YEAR"));
-                wifiDetail.setX_SWIFI_INOUT_DOOR(rs.getString("X_SWIFI_INOUT_DOOR"));
-                wifiDetail.setX_SWIFI_REMARS3(rs.getString("X_SWIFI_REMARS3"));
-                wifiDetail.setLAT(rs.getDouble("LAT"));
-                wifiDetail.setLNT(rs.getDouble("LNT"));
-                wifiDetail.setWORK_DTTM(rs.getString("WORK_DTTM"));
+                wifiDetail.setxSwifiMgrNo(rs.getString("X_SWIFI_MGR_NO"));
+                wifiDetail.setxSwifiWrdoFc(rs.getString("X_SWIFI_WRDOFC"));
+                wifiDetail.setxSwifiMainNm(rs.getString("X_SWIFI_MAIN_NM"));
+                wifiDetail.setxSwifiAdres1(rs.getString("X_SWIFI_ADRES1"));
+                wifiDetail.setxSwifiAdres2(rs.getString("X_SWIFI_ADRES2"));
+                wifiDetail.setxSwifiInstlFloor(rs.getString("X_SWIFI_INSTL_FLOOR"));
+                wifiDetail.setxSwifiInstlTy(rs.getString("X_SWIFI_INSTL_TY"));
+                wifiDetail.setxSwifiInstlMby(rs.getString("X_SWIFI_INSTL_MBY"));
+                wifiDetail.setxSwifiSvcSe(rs.getString("X_SWIFI_SVC_SE"));
+                wifiDetail.setxSwifiCmcwr(rs.getString("X_SWIFI_CMCWR"));
+                wifiDetail.setxSwifiCnstcYear(rs.getInt("X_SWIFI_CNSTC_YEAR"));
+                wifiDetail.setxSwifiInoutDoor(rs.getString("X_SWIFI_INOUT_DOOR"));
+                wifiDetail.setxSwifiRemars3(rs.getString("X_SWIFI_REMARS3"));
+                wifiDetail.setLat(rs.getDouble("LAT"));
+                wifiDetail.setLnt(rs.getDouble("LNT"));
+                wifiDetail.setWorkDttm(rs.getString("WORK_DTTM"));
 
                 AroundWifiList.add(wifiDetail);
             }

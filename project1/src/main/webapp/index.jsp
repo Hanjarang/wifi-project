@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
 <html>
 <head>
     <title>내 위치기반 공공 와이파이</title>
@@ -11,11 +10,12 @@
         }
 
         thead:first-child {
-            background-color: wheat;
+            background-color: #90EE90 ; 
         }
 
-        td {
+        td, th {
             text-align: center;
+            font-size: 12px;
         }
     </style>
 </head>
@@ -69,6 +69,21 @@
         </tbody>
     </table>
 </main>
+<script>
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            alert("이 브라우저에서는 위치 정보가 지원되지 않습니다");
+        }
+    }
 
+    function showPosition(position) {
+        document.getElementById('mylat').value = position.coords.latitude;
+        document.getElementById('mylnt').value = position.coords.longitude;
+    }
+</script>
 </body>
 </html>
+
+    
