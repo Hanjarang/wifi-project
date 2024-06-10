@@ -11,11 +11,12 @@
         }
 
         thead:first-child {
-            background-color: wheat;
+            background-color: #90EE90 ; /* 배경색을 초록색으로 변경 */
         }
 
-        td {
+        td, th {
             text-align: center;
+            font-size: 12px; /* 원하는 폰트 크기로 변경 */
         }
     </style>
 </head>
@@ -45,15 +46,17 @@
         </thead>
         <tbody>
         <%
-    List<Object[]> historyList = Database.getHistory();
-    int num = 1;
-    for (Object[] history : historyList) {
-%>
+            List<Object[]> historyList = Database.getHistory();
+            int num = 1;
+            for (Object[] history : historyList) {
+                String xCoord = (history[0] != null && !history[0].toString().isEmpty()) ? history[0].toString() : "0.0";
+                String yCoord = (history[1] != null && !history[1].toString().isEmpty()) ? history[1].toString() : "0.0";
+        %>
         
         <tr>
             <td><%= num++ %></td>
-            <td><%= history[0] %></td>
-            <td><%= history[1] %></td>
+            <td><%= xCoord %></td>
+            <td><%= yCoord %></td>
             <td><%= history[2] %></td>
             <td><button>delete</button></td>
         </tr>
@@ -64,4 +67,3 @@
 
 </body>
 </html>
-

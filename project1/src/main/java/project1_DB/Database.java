@@ -85,46 +85,38 @@ public class Database {
     }
     
     public static int wifiCount() {
-        Connection connection = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
         int wifiCount = 0;
 
+        // JDBC 드라이버 로드
         try {
-            // JDBC 드라이버 로드
             Class.forName("org.mariadb.jdbc.Driver");
-            // 데이터베이스 연결
-            connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            return wifiCount; // 드라이버 로드 실패시 0 반환
+        }
 
-            String sql = " select count(*) from wifi_detail ";
+        String dbUrl = "jdbc:mariadb://localhost:3306/testdb3";
+        String dbUser = "testuser3";
+        String dbPassword = "zerobase";
 
-            ps = connection.prepareStatement(sql);
-            rs = ps.executeQuery();
+        String sql = "SELECT COUNT(*) FROM wifi_detail";
+
+        // 데이터베이스 연결 및 쿼리 실행
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement ps = connection.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
 
             if (rs.next()) {
                 wifiCount = rs.getInt(1);
             }
-        } catch (ClassNotFoundException | SQLException e) {
+
+        } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            // 리소스 해제
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
         }
+
         return wifiCount;
     }
+
     
     public static void saveHistory(double lat, double lnt, Timestamp searchTime) {
         Connection connection = null;
@@ -195,7 +187,7 @@ public class Database {
 
             // 결과를 리스트에 추가
             while (rs.next()) {
-                wifidetail wifiDetail = new wifidetail();
+                wifidetail wifiDetail = new wifidetail(userlnt, userlnt);
                 wifiDetail.setxSwifiMgrNo(rs.getString("X_SWIFI_MGR_NO"));
                 wifiDetail.setxSwifiWrdoFc(rs.getString("X_SWIFI_WRDOFC"));
                 wifiDetail.setxSwifiMainNm(rs.getString("X_SWIFI_MAIN_NM"));

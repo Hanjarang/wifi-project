@@ -20,7 +20,12 @@ public class wifidetail {
     private double lnt;
     private String workDttm;
 
-    // 거리를 계산하는 메서드
+
+    public wifidetail(double lat, double lnt) {
+        this.lat = lat;
+        this.lnt = lnt;
+    }
+
     public double getDistance(double userLat, double userLnt) {
         final int R = 6371; // 지구의 반지름 (킬로미터)
         double latDistance = Math.toRadians(userLat - this.lat);
@@ -32,10 +37,26 @@ public class wifidetail {
         return R * c;
     }
 
-    // 거리를 포맷팅하여 반환하는 메서드
     public String formatDistance(double userLat, double userLnt) {
         DecimalFormat df = new DecimalFormat("#.####");
         return df.format(getDistance(userLat, userLnt));
+    }
+
+    public static void main(String[] args) {
+        // WiFiDetail 객체 생성 (예: 특정 위치의 WiFi)
+    	wifidetail wifiDetail = new wifidetail(37.7749, -122.4194);
+        
+        // 비교할 위치 (예: 사용자의 현재 위치)
+        double userLat = 34.0522;
+        double userLnt = -118.2437;
+        
+        // getDistance 메서드 호출 시 인자 전달
+        double distance = wifiDetail.getDistance(userLat, userLnt);
+        System.out.println("Distance: " + distance + " km");
+
+        // formatDistance 메서드 호출 시 인자 전달
+        String formattedDistance = wifiDetail.formatDistance(userLat, userLnt);
+        System.out.println("Formatted Distance: " + formattedDistance + " km");
     }
 
     // Getter와 Setter 메서드
@@ -166,6 +187,23 @@ public class wifidetail {
     public void setWorkDttm(String workDttm) {
         this.workDttm = workDttm;
     }
+    
+    public String getLatAsString() {
+        return (lat != 0.0) ? String.valueOf(lat) : "0.0";
+    }
 
+    public String getLntAsString() {
+        return (lnt != 0.0) ? String.valueOf(lnt) : "0.0";
+    }
+
+    // 추가된 getName 메서드
+    public String getName() {
+        return xSwifiMainNm;
+    }
+
+    // 추가된 getAddress 메서드
+    public String getAddress() {
+        return xSwifiAdres1 + " " + xSwifiAdres2;
+    }
 }
 

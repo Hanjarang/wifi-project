@@ -20,6 +20,7 @@
     }
     List<wifidetail> nearbyWifiList = Database.getAroundWifi(userLat, userLnt);
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,7 +65,7 @@
     <table>
         <thead>
         <tr>
-            <th>거리(km)</th>
+            <th>거리</th>
             <th>관리번호</th>
             <th>자치구</th>
             <th>와이파이명</th>
@@ -119,6 +120,7 @@
     function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
+        }
     }
 
     function showPosition(position) {
